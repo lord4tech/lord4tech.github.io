@@ -1,382 +1,437 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCQs - Muscular System</title>
+    <title>اكاديمية هكرناها - المنصة المثلى لتعلم الطب</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Cairo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc; /* A light gray background */
+            scroll-behavior: smooth;
         }
-        .container {
-            width: 80%;
-            margin: auto;
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* Mobile Mockup Styles */
+        .mobile-mockup {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            background-color: #1a202c; /* Dark gray frame */
+            border-radius: 40px;
+            padding: 15px;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
+        }
+        .mobile-mockup .screen {
+            background-color: #edf2f7; /* Light gray screen */
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
-        header {
-            background: #50b3a2;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #e8491d 3px solid;
+        .mobile-mockup .notch {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 25px;
+            background-color: #1a202c;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
         }
-        header a, header h1 {
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
+        /* Loader for Gemini API */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
         }
-        .questions {
-            background: #fff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .question {
-            margin-bottom: 20px;
-        }
-        .question h2 {
-            margin-bottom: 10px;
-        }
-        .options {
-            list-style: none;
-            padding: 0;
-        }
-        .options li {
-            background: #e7e9eb;
-            margin: 8px 0;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .options li:hover {
-            background: #d1d3d5;
-        }
-        .answer {
-            background: #d4edda;
-            padding: 10px;
-            margin-top: 10px;
-            border-left: 4px solid #28a745;
-            border-radius: 4px;
-            display: none;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>MCQs - Muscular System</h1>
-        </div>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">اكاديمية هكرناها</a>
+            <div class="hidden md:flex items-center space-x-6 space-x-reverse">
+                <a href="#features" class="text-gray-600 hover:text-indigo-600 transition duration-300">الميزات</a>
+                <a href="#ai-assistant" class="text-gray-600 hover:text-indigo-600 transition duration-300">✨ مساعدك الذكي</a>
+                <a href="#about-us" class="text-gray-600 hover:text-indigo-600 transition duration-300">عنا</a>
+                <a href="#pricing" class="text-gray-600 hover:text-indigo-600 transition duration-300">الأسعار</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-indigo-600 transition duration-300">آراء الطلاب</a>
+                <a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">اشترك الآن</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-gray-600 hover:text-indigo-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
     </header>
-    <div class="container">
-        <div class="questions">
-        	<div class="question" id="q1">
-                <h2>1. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Skeletal muscle is derived from splanchnic mesoderm.</li>
-                    <li>b) Smooth muscle differentiates only from mesoderm.</li>
-                    <li>c) Cardiac muscle is derived from paraxial mesoderm.</li>
-                    <li>d) Skeletal muscle is derived from paraxial mesoderm.</li>
-                    <li>e) Smooth muscle differentiates solely from ectoderm.</li>
-                </ul>
-                <div class="answer">Correct Answer: d) Skeletal muscle is derived from paraxial mesoderm.</div>
-            </div>
-            <div class="question" id="q2">
-                <h2>2. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Head musculature is derived from somites.</li>
-                    <li>b) Musculature of the limbs is derived from somitomeres.</li>
-                    <li>c) Head musculature is derived from somitomeres.</li>
-                    <li>d) Musculature of the axial skeleton is derived from lateral plate mesoderm.</li>
-                    <li>e) Head musculature is derived from sclerotome.</li>
-                </ul>
-                <div class="answer">Correct Answer: c) Head musculature is derived from somitomeres.</div>
-            </div>
-            <!-- Add more questions here in the same format -->
-            	<div class="question" id="q3">
-                <h2>3. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Infrahyoid muscles are derived from the dorsomedial (DML) lip.</li>
-                    <li>b) Limb muscles are derived from the dorsomedial (DML) lip.</li>
-                    <li>c) Back muscles are derived from the ventrolateral (VLL) region.</li>
-                    <li>d) Abdominal wall muscles are derived from the ventrolateral (VLL) region.</li>
-                    <li>e) Intercostal muscles are derived from the ventrolateral (VLL) region.</li>
-                </ul>
-                <div class="answer">Correct Answer: d) Abdominal wall muscles are derived from the ventrolateral (VLL) region.</div>
-            </div>
-            <div class="question" id="q4">
-                <h2>4. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) The primaxial domain includes somite-derived cells that migrated across the lateral somitic frontier.</li>
-                    <li>b) The abaxial domain contains cells that receive developmental signals from the neural tube and notochord.</li>
-                    <li>c) The lateral somitic frontier defines the border between dermis derived from somites and lateral plate mesoderm.</li>
-                    <li>d) The primaxial domain consists of lateral plate mesoderm.</li>
-                    <li>e) The abaxial domain contains only somite-derived cells.</li>
-                </ul>
-                <div class="answer">Correct Answer: c) The lateral somitic frontier defines the border between dermis derived from somites and lateral plate mesoderm.</div>
-            </div>
-            <div class="question" id="q5">
-                <h2>5. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) The bony components of ribs are derived from lateral plate mesoderm.</li>
-                    <li>b) The cartilaginous part of ribs attached to the sternum is derived from primaxial cells.</li>
-                    <li>c) The bony components of ribs are derived from primaxial sclerotome cells.</li>
-                    <li>d) The cartilaginous part of ribs not attached to the sternum is derived from abaxial cells.</li>
-                    <li>e) Rib development is not influenced by the lateral somitic frontier.</li>
-                </ul>
-                <div class="answer">Correct Answer: c) The bony components of ribs are derived from primaxial sclerotome cells.</div>
-            </div>
-            <div class="question" id="q6">
-                <h2>6. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Epimeres are innervated by ventral primary rami.</li>
-                    <li>b) Hypomeres are innervated by dorsal primary rami.</li>
-                    <li>c) The old concept of muscle development focuses on abaxial and primaxial cells.</li>
-                    <li>d) The new concept of muscle development is based on the functional definition of innervation.</li>
-                    <li>e) Hypomeres are innervated by ventral primary rami.</li>
-                </ul>
-                <div class="answer">Correct Answer: e) Hypomeres are innervated by ventral primary rami.</div>
-            </div>
 
-            <div class="question" id="q7">
-                <h2>7. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Myoblasts do not fuse during skeletal muscle differentiation.</li>
-                    <li>b) Tendons are derived from dermatomes.</li>
-                    <li>c) Myofibrils appear before the fusion of myoblasts.</li>
-                    <li>d) Tendons are derived from sclerotome cells lying adjacent to myotomes.</li>
-                    <li>e) Cross-striations in muscle fibers appear by the end of the first month.</li>
-                </ul>
-                <div class="answer">Correct Answer: d) Tendons are derived from sclerotome cells lying adjacent to myotomes.</div>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-gradient text-white py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">أتقن الطب مع اكاديمية هكرناها</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">المنصة المتكاملة لمساعدة طلاب الطب على التعلم بذكاء، وتذكر المزيد، والتفوق في امتحاناتهم.</p>
+                <div class="flex justify-center space-x-4 space-x-reverse">
+                    <a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="bg-white text-indigo-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300">ابدأ تجربتك المجانية</a>
+                    <a href="#features" class="bg-transparent border-2 border-white font-semibold px-8 py-3 rounded-full hover:bg-white hover:text-indigo-600 transition duration-300">اعرف المزيد</a>
+                </div>
             </div>
+        </section>
 
-            <div class="question" id="q8">
-                <h2>8. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Connective tissues in the head region are derived from somitic mesoderm.</li>
-                    <li>b) Connective tissues in the cervical region are derived from neural crest cells.</li>
-                    <li>c) Connective tissues in the body wall are derived from neural crest cells.</li>
-                    <li>d) Connective tissues in the limbs are derived from the parietal layer of lateral plate mesoderm.</li>
-                    <li>e) Myoblasts in the head region are derived from neural crest cells.</li>
-                </ul>
-                <div class="answer">Correct Answer: d) Connective tissues in the limbs are derived from the parietal layer of lateral plate mesoderm.</div>
+        <!-- Features Section -->
+        <section id="features" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">لماذا تختار اكاديمية هكرناها؟</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg feature-card transition duration-300 text-center">
+                        <div class="text-indigo-500 mb-4 inline-block">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">مكتبة فيديوهات شاملة</h3>
+                        <p class="text-gray-600">شاهد آلاف الفيديوهات المختصرة وسهلة الفهم في كل مواضيع الطب، من التشريح إلى علم الأدوية.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg feature-card transition duration-300 text-center">
+                        <div class="text-indigo-500 mb-4 inline-block">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">اختبارات وملفات معدة بصريا لتساعدك على التذكر والحفظ</h3>
+                        <p class="text-gray-600">عزز تعلمك بأسئلة تدريبية وبطاقات مراجعة بنظام التكرار المتباعد مصممة خصيصًا لما شاهدته للتو.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg feature-card transition duration-300 text-center">
+                        <div class="text-indigo-500 mb-4 inline-block">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">مسار تعليمي مخصص</h3>
+                        <p class="text-gray-600">يقوم فريقنا المختص بإنشاء جدول دراسي يناسب منهجك وأدائك ليبقيك على المسار الصحيح.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="question" id="q9">
-                <h2>9. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) All voluntary muscles of the head are derived from ectoderm.</li>
-                    <li>b) The iris muscle is derived from paraxial mesoderm.</li>
-                    <li>c) Patterns of muscle formation in the head are directed by neural crest cells.</li>
-                    <li>d) The tongue muscles are derived from ectoderm.</li>
-                    <li>e) The pharyngeal arch muscles are derived from sclerotome.</li>
-                </ul>
-                <div class="answer">Correct Answer: c) Patterns of muscle formation in the head are directed by neural crest cells.</div>
+        <!-- Gemini AI Assistant Section -->
+        <section id="ai-assistant" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-center mb-4">✨ مساعدك الدراسي الذكي</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">هل لديك سؤال طبي معقد؟ اكتبه هنا وسيقوم مساعدنا الذكي بتبسيطه لك فوراً.</p>
+                <div class="max-w-2xl mx-auto">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <textarea id="medical-question" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="4" placeholder="مثال: ما هي آلية عمل البنسلين؟"></textarea>
+                        <button id="ask-gemini-btn" class="mt-4 w-full bg-indigo-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-indigo-700 transition duration-300 flex items-center justify-center">
+                            <span>اسأل الآن</span>
+                        </button>
+                    </div>
+                    <div id="loader" class="hidden mx-auto mt-8 loader"></div>
+                    <div id="gemini-response" class="mt-8 bg-white p-6 rounded-lg shadow-md text-right leading-relaxed">
+                        <p class="text-gray-500">ستظهر إجابتك هنا...</p>
+                    </div>
+                </div>
             </div>
+        </section>
+        
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="bg-white py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">الطريقة الأذكى للدراسة</h2>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                    <!-- Step 1 -->
+                    <div class="text-center max-w-xs">
+                        <div class="bg-indigo-100 text-indigo-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-3xl font-bold">١</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">شاهد وتعلم</h3>
+                        <p class="text-gray-600">ابدأ بفيديوهاتنا الجذابة التي تبسط المواضيع المعقدة إلى مفاهيم بسيطة لا تُنسى.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="text-center max-w-xs">
+                        <div class="bg-indigo-100 text-indigo-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-3xl font-bold">٢</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">افهم واحفظ بسهولة</h3>
+                        <p class="text-gray-600">نحول المواضيع المعقدة إلى شروحات مرئية ورسوم توضيحية تساعدك على فهم أعمق وحفظ أسرع.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="text-center max-w-xs">
+                        <div class="bg-indigo-100 text-indigo-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-3xl font-bold">٣</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">راجع وتذكر</h3>
+                        <p class="text-gray-600">استخدم ملخصاتنا الشاملة والمبسطة لمراجعة المعلومات الأساسية وترسيخها للاحتفاظ بها على المدى الطويل.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <div class="question" id="q10">
-                <h2>10. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Limb musculature is derived from neural crest cells.</li>
-                    <li>b) The mesenchyme forming limb muscles is derived from lateral plate mesoderm.</li>
-                    <li>c) The connective tissue in the limbs is derived from neural crest cells.</li>
-                    <li>d) Limb bones are derived from somites.</li>
-                    <li>e) The first indication of limb musculature appears in the 7th week of development.</li>
-                </ul>
-                <div class="answer">Correct Answer: e) The first indication of limb musculature appears in the 7th week of development.</div>
+        <!-- About Us Section -->
+        <section id="about-us" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2">
+                        <img src="https://placehold.co/600x400/667eea/ffffff?text=فريقنا" alt="فريق اكاديمية هكرناها" class="rounded-lg shadow-xl">
+                    </div>
+                    <div class="lg:w-1/2 text-center lg:text-right">
+                        <h2 class="text-3xl font-bold mb-4">عن اكاديمية هكرناها</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed">نحن فريق من الأطباء والخبراء التعليميين الذين شغفهم تبسيط العلوم الطبية. مهمتنا هي تمكين طلاب الطب في جميع أنحاء العالم من خلال توفير محتوى تعليمي عالي الجودة، مبتكر، وسهل الوصول إليه. نؤمن بأن التعليم المتميز هو المفتاح لبناء جيل جديد من الأطباء الأكفاء والمبدعين.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="question" id="q11">
-                <h2>11. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Cardiac muscle develops from paraxial mesoderm.</li>
-                    <li>b) Myoblasts in cardiac muscle fuse during development.</li>
-                    <li>c) Purkinje fibers are formed from splanchnic mesoderm.</li>
-                    <li>d) Cardiac muscle develops from splanchnic mesoderm surrounding the heart tube.</li>
-                    <li>e) Intercalated discs in cardiac muscle are formed by fusion of myoblasts.</li>
-                </ul>
-                <div class="answer">Correct Answer: d) Cardiac muscle develops from splanchnic mesoderm surrounding the heart tube.</div>
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">خطط الأسعار والعروض</h2>
+                <div class="flex justify-center">
+                    <!-- Pricing Card: Full Course -->
+                    <div class="bg-white p-8 rounded-lg shadow-2xl text-center border-4 border-indigo-600 relative flex flex-col max-w-sm">
+                        <h3 class="text-2xl font-bold mb-4">باقة الكورس الكامل</h3>
+                        <p class="text-4xl font-extrabold mb-4">200<span class="text-lg font-medium text-gray-500">$</span></p>
+                        <ul class="text-gray-600 mb-8 space-y-2 text-right flex-grow">
+                            <li class="flex items-center justify-end"><span class="ml-2">وصول كامل للفيديوهات</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">بنك أسئلة متكامل</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">ملخصات شاملة</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">وصول للمحتوى الحصري</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">تحديثات مستقبلية مجانية</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                        </ul>
+                        <a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="mt-auto bg-indigo-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-indigo-700 transition duration-300">اشترك الآن</a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="question" id="q12">
-                <h2>12. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Smooth muscle of the dorsal aorta is derived from paraxial mesoderm.</li>
-                    <li>b) Smooth muscle in the wall of the gut tube is derived from ectoderm.</li>
-                    <li>c) Smooth muscle in the coronary arteries originates from proepicardial cells and neural crest cells.</li>
-                    <li>d) The sphincter and dilator muscles of the pupil are derived from mesoderm.</li>
-                    <li>e) Smooth muscle in the large arteries is derived from ectoderm.</li>
-                </ul>
-                <div class="answer">Correct Answer: c) Smooth muscle in the coronary arteries originates from proepicardial cells and neural crest cells.</div>
+        <!-- Subscribe Section -->
+        <section id="subscribe" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-12">
+                    <div class="lg:w-1/2 text-center lg:text-right">
+                        <h2 class="text-3xl font-bold mb-4">انضم إلى آلاف الطلاب الناجحين</h2>
+                        <p class="text-gray-600 text-lg mb-6">احصل على وصول كامل لجميع فيديوهاتنا واختباراتنا وخططنا الدراسية. ابدأ رحلتك نحو التميز اليوم.</p>
+                        <a href="#pricing" class="bg-indigo-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-indigo-700 transition duration-300">اختر خطتك الآن</a>
+                    </div>
+                    <div class="lg:w-1/2 flex justify-center lg:justify-start">
+                        <div class="mobile-mockup">
+                            <div class="notch"></div>
+                            <div class="screen">
+                                <img src="https://placehold.co/270x570/667eea/ffffff?text=محتوى+تعليمي" alt="محتوى تعليمي" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="question" id="q13">
-                <h2>13. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Complete absence of muscle is always debilitating.</li>
-                    <li>b) Poland sequence is characterized by bilateral aplasia of the sternocostal head of the pectoralis major muscle.</li>
-                    <li>c) Prune belly syndrome involves partial or complete absence of chest musculature.</li>
-                    <li>d) Duchenne's muscular dystrophy is an X-linked recessive disease.</li>
-                    <li>e) Poland sequence occurs more frequently among females than males.</li>
-                </ul>
-                <div class="answer">Correct Answer: d) Duchenne's muscular dystrophy is an X-linked recessive disease.</div>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="bg-white py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">موثوق به من قبل الطلاب حول العالم</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-gray-600 mb-4">"اكاديمية هكرناها غيرت طريقتي في الدراسة تمامًا. الفيديوهات رائعة، والاختبارات ساعدتني في التفوق في امتحاناتي. أنصح بها بشدة!"</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full ml-4" src="https://placehold.co/100x100/667eea/ffffff?text=ع" alt="Avatar">
+                            <div>
+                                <p class="font-bold">عائشة أحمد</p>
+                                <p class="text-sm text-gray-500">طالبة طب، سنة ثالثة</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-gray-600 mb-4">"خطة الدراسة المخصصة غيرت كل شيء. لقد جعلتني منظمًا ومركزًا على ما أحتاج إلى تعلمه. شكرًا اكاديمية هكرناها!"</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full ml-4" src="https://placehold.co/100x100/764ba2/ffffff?text=م" alt="Avatar">
+                            <div>
+                                <p class="font-bold">محمد خان</p>
+                                <p class="text-sm text-gray-500">طالب طب، سنة ثانية</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-gray-600 mb-4">"أخيرًا فهمت المواضيع المعقدة التي عانيت منها لشهور. الشروحات المرئية تصنع كل الفارق."</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full ml-4" src="https://placehold.co/100x100/4a5568/ffffff?text=ف" alt="Avatar">
+                            <div>
+                                <p class="font-bold">فاطمة الجميل</p>
+                                <p class="text-sm text-gray-500">طالبة طب، سنة رابعة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+    </main>
 
-            <div class="question" id="q14">
-                <h2>14. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Myoblasts fuse to form multinucleated muscle fibers in cardiac muscle.</li>
-                    <li>b) Myofibrils do not appear during the differentiation of skeletal muscle.</li>
-                    <li>c) Cross-striations typical of skeletal muscle appear by the end of the third month.</li>
-                    <li>d) Tendons for muscle attachment to bones are derived from dermatomes.</li>
-                    <li>e) Somitomeres segregate into sclerotome and dermomyotome segments in the head region.</li>
-                </ul>
-                <div class="answer">Correct Answer: c) Cross-striations typical of skeletal muscle appear by the end of the third month.</div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">اكاديمية هكرناها</h3>
+                    <p class="text-gray-400">تعلم بذكاء، وليس بجهد أكبر.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">المنصة</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#features" class="hover:text-indigo-400">الميزات</a></li>
+                        <li class="mb-2"><a href="#pricing" class="hover:text-indigo-400">الأسعار</a></li>
+                        <li class="mb-2"><a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400">اشترك الآن</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">الشركة</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#about-us" class="hover:text-indigo-400">عنا</a></li>
+                        <li class="mb-2"><a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">تواصل</h4>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="https://www.instagram.com/hakrnaha/?hl=ar" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white">
+                            <!-- Instagram Icon -->
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.415 2.175 8.796 2.163 12 2.163m0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98C15.667.014 15.259 0 12 0zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zM12 16c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z" clip-rule="evenodd"/></svg>
+                        </a>
+                        <a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white">
+                            <!-- Telegram Icon -->
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.57c-.28 1.1-.86 1.32-1.74.84l-4.93-3.6-2.4 2.34c-.26.26-.48.48-.92.48z"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <div class="question" id="q15">
-                <h2>15. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) In the head region, connective tissues are derived from somitic mesoderm.</li>
-                    <li>b) Connective tissues in the cervical region are derived from neural crest cells.</li>
-                    <li>c) Myoblasts migrate into connective tissues in the head region derived from neural crest cells.</li>
-                    <li>d) In the body wall, connective tissues originate from neural crest cells.</li>
-                    <li>e) In the limbs, myoblasts are derived from neural crest cells.</li>
-                </ul>
-                <div class="answer">Correct Answer: c) Myoblasts migrate into connective tissues in the head region derived from neural crest cells.</div>
-            </div>
-
-            <div class="question" id="q16">
-                <h2>16. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) All voluntary muscles of the head are derived from ectoderm.</li>
-                    <li>b) The iris muscle is derived from paraxial mesoderm.</li>
-                    <li>c) Patterns of muscle formation in the head are directed by sclerotome cells.</li>
-                    <li>d) The tongue muscles are derived from paraxial mesoderm.</li>
-                    <li>e) The pharyngeal arch muscles are derived from sclerotome.</                </ul>
-                <div class="answer">Correct Answer: d) The tongue muscles are derived from paraxial mesoderm.</div>
-            </div>
-
-            <div class="question" id="q17">
-                <h2>17. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Limb musculature originates from neural crest cells.</li>
-                    <li>b) The mesenchyme forming limb muscles is derived from lateral plate mesoderm.</li>
-                    <li>c) The connective tissue in the limbs is derived from neural crest cells.</li>
-                    <li>d) Limb bones are derived from somites.</li>
-                    <li>e) Limb musculature appears in the 5th week of development.</li>
-                </ul>
-                <div class="answer">Correct Answer: b) The mesenchyme forming limb muscles is derived from lateral plate mesoderm.</div>
-            </div>
-
-            <div class="question" id="q18">
-                <h2>18. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Cardiac muscle develops from paraxial mesoderm.</li>
-                    <li>b) Myoblasts in cardiac muscle fuse during development.</li>
-                    <li>c) Purkinje fibers are formed from splanchnic mesoderm.</li>
-                    <li>d) Cardiac muscle develops from splanchnic mesoderm surrounding the heart tube.</li>
-                    <li>e) Intercalated discs in cardiac muscle are formed by fusion of myoblasts.</li>
-                </ul>
-                <div class="answer">Correct Answer: d) Cardiac muscle develops from splanchnic mesoderm surrounding the heart tube.</div>
-            </div>
-            <div class="question" id="q19">
-                <h2>19. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Smooth muscle of the dorsal aorta is derived from paraxial mesoderm.</li>
-                    <li>b) Smooth muscle in the wall of the gut tube is derived from ectoderm.</li>
-                    <li>c) Smooth muscle in the coronary arteries originates from proepicardial cells and neural crest cells.</li>
-                    <li>d) The sphincter and dilator muscles of the pupil are derived from mesoderm.</li>
-                    <li>e) Smooth muscle in the large arteries is derived from ectoderm.</li>
-                </ul>
-                <div class="answer">Correct Answer: c) Smooth muscle in the coronary arteries originates from proepicardial cells and neural crest cells.</div>
-            </div>
-
-            <div class="question" id="q20">
-                <h2>20. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Complete absence of muscle is always debilitating.</li>
-                    <li>b) Poland sequence is characterized by bilateral aplasia of the sternocostal head of the pectoralis major muscle.</li>
-                    <li>c) Prune belly syndrome involves partial or complete absence of chest musculature.</li>
-                    <li>d) Duchenne's muscular dystrophy is an X-linked recessive disease.</li>
-                    <li>e) Poland sequence occurs more frequently among females than males.</li>
-                </ul>
-                <div class="answer">Correct Answer: d) Duchenne's muscular dystrophy is an X-linked recessive disease.</div>
-            </div>
-
-            <div class="question" id="q21">
-                <h2>21. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Partial or complete absence of muscle is very rare.</li>
-                    <li>b) Poland sequence is characterized by bilateral aplasia of the pectoralis major muscle.</li>
-                    <li>c) Prune belly syndrome involves partial or complete absence of abdominal musculature.</li>
-                    <li>d) Muscular dystrophy is a term for a single inherited disease.</li>
-                    <li>e) Duchenne's muscular dystrophy is common among females.</li>
-                </ul>
-                <div class="answer">Correct Answer: c) Prune belly syndrome involves partial or complete absence of abdominal musculature.</div>
-            </div>
-
-            <div class="question" id="q22">
-                <h2>22. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) The muscular system develops from the ectodermal germ layer.</li>
-                    <li>b) Smooth muscle is derived only from the splanchnic mesoderm.</li>
-                    <li>c) Cardiac muscle is derived from paraxial mesoderm.</li>
-                    <li>d) Skeletal muscle differentiates from the splanchnic mesoderm.</li>
-                    <li>e) The muscular system develops from the mesodermal germ layer.</li>
-                </ul>
-                <div class="answer">Correct Answer: e) The muscular system develops from the mesodermal germ layer.</div>
-            </div>
-
-            <div class="question" id="q23">
-                <h2>23. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) Innervation of axial skeletal muscles is based on the functional definition of innervation.</li>
-                    <li>b) Epimeres (back muscles) were innervated by ventral primary rami.</li>
-                    <li>c) Hypomeres (limb and body wall muscles) were innervated by dorsal primary rami.</li>
-                    <li>d) The new concept of muscle development focuses on the functional definition of innervation.</li>
-                    <li>e) The new concept of muscle development is based on the embryological origin of muscle cells.</li>
-                </ul>
-                <div class="answer">Correct Answer: e) The new concept of muscle development is based on the embryological origin of muscle cells.</div>
-            </div>
-
-            <div class="question" id="q24">
-                <h2>24. All of the following are false except one true:</h2>
-                <ul class="options">
-                    <li>a) The primaxial domain includes lateral plate mesoderm cells.</li>
-                    <li>b) The abaxial domain includes only somite-derived cells.</li>
-                    <li>c) The lateral somitic frontier separates the dermis of the back and body wall.</li>
-                    <li>d) The primaxial domain receives developmental signals from lateral plate mesoderm.</li>
-                    <li>e) The abaxial domain contains only somite-derived (paraxial mesoderm) cells.</li>
-                </ul>
-                <div class="answer">Correct Answer: c) The lateral somitic frontier separates the dermis of the back and body wall.</div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 اكاديمية هكرناها. جميع الحقوق محفوظة.</p>
             </div>
         </div>
-    </div>
+    </footer>
+
     <script>
-        document.querySelectorAll('.question').forEach(question => {
-            question.addEventListener('click', () => {
-                question.querySelector('.answer').style.display = 'block';
-            });
-        });
-    </script>
-</body>
-</html>
+        // --- Gemini API Integration ---
+        const askButton = document.getElementById('ask-gemini-btn');
+        const questionInput = document.getElementById('medical-question');
+        const geminiResponseContainer = document.getElementById('gemini-response');
+        const loader = document.getElementById('loader');
+        const buttonText = askButton.querySelector('span');
+
+        /**
+         * Fetches data from the Gemini API with exponential backoff for retries.
+         * This helps handle rate limiting (429 errors) gracefully.
+         */
+        async function fetchWithBackoff(url, options, retries = 3, delay = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    // If the response is not a rate limit error, return it immediately.
+                    if (response.status !== 429) {
+                        return response;
+                    }
+                    // If rate limited, wait for an exponentially increasing duration before retrying.
+                } catch (error) {
+                    console.error(`Attempt ${i + 1} failed:`, error);
+                    if (i === retries - 1) throw error; // Throw error on the last attempt.
+                }
+                // Calculate delay and wait
+                const backoffDelay = delay * Math.pow(2, i);
+                await new Promise(resolve => setTimeout(resolve, backoffDelay));
+            }
+            throw new Error('Max retries reached for fetch request.');
+        }
+
+        askButton.addEventListener('click', async () => {
+            const userPrompt = questionInput.value.trim();
+            if (!userPrompt) {
+                geminiResponseContainer.textContent = 'الرجاء إدخال سؤالك في المربع أعلاه.';
+                return;
+            }
+
+            // --- UI updates for loading state ---
+            loader.classList.remove('hidden');
+            geminiResponseContainer.innerHTML = '';
+            askButton.disabled = true;
+            buttonText.textContent = 'لحظات...';
+
+            // --- Prepare the request for the Gemini API ---
+            // We frame the prompt to guide the model to act as a medical tutor.
+            const fullPrompt = `أجب على هذا السؤال الطبي كأنك تشرح لطالب طب، بسّط المفاهيم المعقدة واستخدم لغة عربية واضحة ومفصلة. السؤال هو: ${userPrompt}`;
             
-            <!-- Add more questions here in the same format -->
-        </div>
-    </div>
-    <script>
-        document.querySelectorAll('.question').forEach(question => {
-            question.addEventListener('click', () => {
-                question.querySelector('.answer').style.display = 'block';
-            });
+            const chatHistory = [{ role: "user", parts: [{ text: fullPrompt }] }];
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // The API key is handled by the execution environment.
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetchWithBackoff(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    // Handle non-successful HTTP responses
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+
+                const result = await response.json();
+                
+                // --- Process and display the response ---
+                // Safely access the response text
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    // Simple conversion of newlines to <br> tags for HTML display.
+                    geminiResponseContainer.innerHTML = text.replace(/\n/g, '<br>');
+                } else {
+                    // Handle cases where the API returns a valid response but no text content.
+                    geminiResponseContainer.textContent = 'عذراً، لم أتمكن من إنشاء إجابة. قد يكون السؤال غير واضح، الرجاء المحاولة مرة أخرى بصيغة مختلفة.';
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                geminiResponseContainer.textContent = 'حدث خطأ أثناء معالجة طلبك. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.';
+            } finally {
+                // --- UI updates to restore initial state ---
+                loader.classList.add('hidden');
+                askButton.disabled = false;
+                buttonText.textContent = 'اسأل الآن';
+            }
         });
     </script>
+
 </body>
 </html>
