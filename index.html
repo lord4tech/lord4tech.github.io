@@ -10,7 +10,7 @@
     
     <!-- Google Fonts (Cairo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Custom Styles -->
@@ -87,7 +87,6 @@
                 <a href="#ai-assistant" class="text-gray-600 hover:text-indigo-600 transition duration-300">✨ مساعدك الذكي</a>
                 <a href="#about-us" class="text-gray-600 hover:text-indigo-600 transition duration-300">عنا</a>
                 <a href="#pricing" class="text-gray-600 hover:text-indigo-600 transition duration-300">الأسعار</a>
-                <a href="#testimonials" class="text-gray-600 hover:text-indigo-600 transition duration-300">آراء الطلاب</a>
                 <a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">اشترك الآن</a>
             </div>
             <div class="md:hidden">
@@ -217,20 +216,56 @@
         <section id="pricing" class="py-20">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-12">خطط الأسعار والعروض</h2>
-                <div class="flex justify-center">
-                    <!-- Pricing Card: Full Course -->
-                    <div class="bg-white p-8 rounded-lg shadow-2xl text-center border-4 border-indigo-600 relative flex flex-col max-w-sm">
-                        <h3 class="text-2xl font-bold mb-4">باقة الكورس الكامل</h3>
-                        <p class="text-4xl font-extrabold mb-4">200<span class="text-lg font-medium text-gray-500">$</span></p>
-                        <ul class="text-gray-600 mb-8 space-y-2 text-right flex-grow">
-                            <li class="flex items-center justify-end"><span class="ml-2">وصول كامل للفيديوهات</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
-                            <li class="flex items-center justify-end"><span class="ml-2">بنك أسئلة متكامل</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
-                            <li class="flex items-center justify-end"><span class="ml-2">ملخصات شاملة</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
-                            <li class="flex items-center justify-end"><span class="ml-2">وصول للمحتوى الحصري</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
-                            <li class="flex items-center justify-end"><span class="ml-2">تحديثات مستقبلية مجانية</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Pricing Card: Tikrit -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center flex flex-col transition duration-300 hover:shadow-2xl hover:scale-105">
+                        <h3 class="text-2xl font-bold mb-4">باقة طب تكريت</h3>
+                        <p class="text-4xl font-extrabold mb-4 text-indigo-600">$200<span class="text-lg font-medium text-gray-500">/IQD</span></p>
+                        <p class="text-gray-500 mb-6">شرح كامل للمواد مع التلخيصات والمقارنات.</p>
+                        <ul class="text-gray-600 mb-8 space-y-3 text-right flex-grow">
+                            <li class="flex items-center justify-end"><span class="ml-2">Anatomy</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Surgery</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Microbiology</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Pharmacology</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Histology</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Internal Medicine</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Parasitology</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Pathology</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
                         </ul>
-                        <a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="mt-auto bg-indigo-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-indigo-700 transition duration-300">اشترك الآن</a>
+                        <a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="mt-auto bg-indigo-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-indigo-700 transition duration-300">بدأ التسجيل</a>
                     </div>
+
+                    <!-- Pricing Card: Baghdad (Featured) -->
+                    <div class="bg-white p-8 rounded-lg shadow-2xl text-center flex flex-col border-4 border-indigo-600 relative transform lg:scale-110">
+                        <span class="bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase absolute -top-4 right-1/2 transform translate-x-1/2">الأكثر طلباً</span>
+                        <h3 class="text-2xl font-bold mb-4">باقة طب بغداد</h3>
+                        <p class="text-4xl font-extrabold mb-4 text-indigo-600">$300<span class="text-lg font-medium text-gray-500">/IQD</span></p>
+                        <p class="text-gray-500 mb-6">شرح كامل للموديلات مع التلخيصات والمقارنات.</p>
+                        <ul class="text-gray-600 mb-8 space-y-3 text-right flex-grow">
+                            <li class="flex items-center justify-end"><span class="ml-2">CA, ID, RP, ImD</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">RM, NT, PHC, SSC</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                        </ul>
+                        <a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="mt-auto bg-gray-400 text-white font-semibold px-6 py-3 rounded-full cursor-not-allowed">قريباً</a>
+                    </div>
+
+                    <!-- Pricing Card: Mosul -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center flex flex-col transition duration-300 hover:shadow-2xl hover:scale-105">
+                        <h3 class="text-2xl font-bold mb-4">باقة طب الموصل</h3>
+                        <p class="text-4xl font-extrabold mb-4 text-indigo-600">$200<span class="text-lg font-medium text-gray-500">/IQD</span></p>
+                        <p class="text-gray-500 mb-6">شرح كامل للمواد مع التلخيصات والمقارنات.</p>
+                        <ul class="text-gray-600 mb-8 space-y-3 text-right flex-grow">
+                            <li class="flex items-center justify-end"><span class="ml-2">Surgery</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Microbiology</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Pharmacology</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Community Medicine</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Internal Medicine</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Parasitology</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                            <li class="flex items-center justify-end"><span class="ml-2">Pathology</span><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></li>
+                        </ul>
+                        <a href="https://t.me/hakrnaha" target="_blank" rel="noopener noreferrer" class="mt-auto bg-gray-400 text-white font-semibold px-6 py-3 rounded-full cursor-not-allowed">قريباً</a>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -396,4 +431,3 @@
 
 </body>
 </html>
-
